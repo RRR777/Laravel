@@ -1,0 +1,23 @@
+{
+    "id": "id",
+    "Date": "Data",
+    "Number": "Numeris",
+    "Speed": "Greitis",
+    "driver_id": "Vairuotojo id",
+    "Name": "Vardas",
+    "City": "Miestas",
+    "User id": "Vartotojo id",
+    "Creator id": "Sukūrėjo id",
+    "Updator id": "Atnaujinusio id",
+    "More": "Plačiau",
+    "Edit": "Taisyti",
+    "Delete": "Ištrinti",
+    "#Radars": "#Radaro įrašai",
+    "#Drivers": "#Vairuotojai",
+    "#About Driver": "#Apie vairuotoją",
+    "#About Radar": "#Radaro įrašas",
+    "#Edit Radar": "#Taisyti Radaro įrašą",
+    "#Delete Radar": "Ištrinti Radaro įrašą"
+
+}
+                   
