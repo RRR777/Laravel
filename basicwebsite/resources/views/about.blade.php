@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+@section('content')
 <h1>About</h1>
 <p>Id consequat officia est occaecat sit occaecat amet. Cillum esse aliquip est commodo non. Do quis ipsum deserunt et. Adipisicing
 	sit fugiat magna aliqua ipsum esse reprehenderit. Cillum irure quis excepteur eu anim irure elit tempor occaecat qui. Et
