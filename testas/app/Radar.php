@@ -24,11 +24,11 @@ class Radar extends Model
 
     public function creator()
     {
-        return $this->belongsTo(User::creator_id);
+        return $this->belongsTo(User::class, 'creator_id');
     }
 
     public function updator()
     {
-        return $this->belongsTo(User::updator_id);
+        return $this->belongsTo(User::class, 'updator_id');
     }
 }

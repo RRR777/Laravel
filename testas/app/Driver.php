@@ -10,8 +10,8 @@ class Driver extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
-/*     public function radars()
+    public function radars()
     {
         return $this->hasMany(Radar::class);
-    } */
+    }
 }
