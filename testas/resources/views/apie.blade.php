@@ -7,15 +7,13 @@
 
         <title>About us</title>
          <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600"
+            rel="stylesheet"
+            type="text/css">
     </head>
 <body>
-
-    <h1 class="content">Apie!</h1>
- 
-    <p> Vairuotojas {{$number}} greitis {{$speed}} </p><br><br>
-
-    <p> Vairuotojas <?=$number; ?> greitis <?=$speed; ?> </p>
-
+    <h1 class="content">Apie!</h1> 
+    <p> Vairuotojas {{ $number }} greitis {{ $speed }} </p>
+    <br><br>
 </body>
 </html>

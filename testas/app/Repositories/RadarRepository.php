@@ -11,10 +11,6 @@ class RadarRepository
          $radars = Radar::orderBy('date', 'desc')->paginate($page);
          return $radars;
     }
-/*     public function get($id)
-    {
-        return Radar::find($id);
-    } */
 
     public function save($request)
     {
@@ -35,7 +31,7 @@ class RadarRepository
         $radar->distance = $request->input('distance');
         $radar->time = $request->input('time');
         $radar->user_id = Auth::user()->id;
-        $radar->updator_id = Auth::user()->id;        
+        $radar->updator_id = Auth::user()->id;
         $radar->save();
     }
 

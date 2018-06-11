@@ -14,10 +14,10 @@ class DriversSeeder extends Seeder
     public function run()
     {
         DB::table('drivers')->insert([
-        'name' => 'Rasa Rasaitė',
-        'city' => 'Zarasai',        
-        'created_at' => Carbon::now(),
-        'updated_at' => Carbon::now()
+            'name' => 'Rasa Rasaitė',
+            'city' => 'Zarasai',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
     }
 }

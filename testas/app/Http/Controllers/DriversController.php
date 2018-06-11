@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class DriversController extends Controller
 {
-      /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -17,6 +17,7 @@ class DriversController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,7 +51,7 @@ class DriversController extends Controller
         $this->validate($request, [
             'name' => 'required | string ',
             'city' => 'required | string ', 
-            ]);
+        ]);
 
         $driver = new Driver;
         $driver->name = $request->input('name');
@@ -69,7 +70,7 @@ class DriversController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Driver $driver)
-    {    
+    {
         return view('drivers.show', compact('driver'));
     }
 
@@ -93,11 +94,10 @@ class DriversController extends Controller
      */
     public function update(Request $request, Driver $driver)
     {
-
         $this->validate($request, [
             'name' => 'required | string ',
             'city' => 'required | string ', 
-            ]);
+        ]);
 
         $driver->name = $request->input('name');
         $driver->city = $request->input('city');
@@ -108,11 +108,11 @@ class DriversController extends Controller
         return redirect('/drivers');
     }
 
-
-     public function delete(Driver $driver)
+    public function delete(Driver $driver)
     {
         return view('drivers.destroy', compact('driver'));
     }
+
     /**
      * Remove the specified resource from storage.
      *

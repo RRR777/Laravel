@@ -7,14 +7,16 @@
 
         <title>About us</title>
          <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600"
+            rel="stylesheet"
+            type="text/css">
     </head>
 <body>
     <h1 class="content">About!</h1>
 
     <ul>
-        @foreach($tasks as $task)
-            <li>{{$task}}</li>
+        @foreach ($tasks as $task)
+            <li>{{ $task }}</li>
         @endforeach
     </ul>
 </body>

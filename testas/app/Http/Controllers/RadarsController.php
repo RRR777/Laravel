@@ -3,26 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Radar;
 use App\Repositories\RadarRepository;
-
 use Illuminate\Support\Facades\Auth;
 
 class RadarsController extends Controller
 {
-
-      /**
+    /**
      * Create a new controller instance.
      *
      * @return void
      */
     private $radarRepository;
+
     public function __construct(RadarRepository $radarRepository)
     {
         $this->middleware('auth');
         $this->radarRepository = $radarRepository;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +29,6 @@ class RadarsController extends Controller
      */
     public function index()
     {
-        //$radars = Radar::orderBy('id', 'asc')->paginate(15);
         $radars = $this->radarRepository->list(10);
         return view('radars.index', compact('radars'));
     }
@@ -42,7 +40,6 @@ class RadarsController extends Controller
      */
     public function create()
     {
-        //$radars = Radar::all();
         return view('radars.create');
     }
 
@@ -54,15 +51,13 @@ class RadarsController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'date' => 'required | date',
             'number' => 'required | string | max:6 |',
             'distance' => 'required | numeric',
-            'time' => 'required | numeric'           
-            ]);
-        //var_dump($request->all());
- // $this->RadarRepository->save($request);
+            'time' => 'required | numeric'
+        ]);
+
         $radar = new Radar;
         $radar->date = $request->input('date');
         $radar->number = $request->input('number');
@@ -70,7 +65,6 @@ class RadarsController extends Controller
         $radar->time = $request->input('time');
         $radar->user_id = Auth::user()->id;
         $radar->creator_id = Auth::user()->id;
-        //$radar->speed = $request->input('distance') / $request->input('time') * 3.6;
         $radar->save();
 
         return redirect('/radars');
@@ -84,8 +78,7 @@ class RadarsController extends Controller
      */
     public function show(Radar $radar)
     {
-            //$radar = Radar::find($id);
-            return view('radars.show', compact('radar'));
+        return view('radars.show', compact('radar'));
     }
 
     /**
@@ -96,7 +89,6 @@ class RadarsController extends Controller
      */
     public function edit(Radar $radar)
     {
-        //$radar = Radar::find($id);
         return view('radars.edit', compact('radar'));
     }
 
@@ -114,15 +106,14 @@ class RadarsController extends Controller
             'number' => 'required | string | max:6 |',
             'distance' => 'required | numeric',
             'time' => 'required | numeric',
-            ]);
-      //  $this->RadarRepository->update($request);
+        ]);
+
         $radar->date = $request->input('date');
         $radar->number = $request->input('number');
         $radar->distance = $request->input('distance');
         $radar->time = $request->input('time');
         $radar->user_id = Auth::user()->id;
         $radar->updator_id = Auth::user()->id;
-        //$radar->speed = $request->input('distance') / $request->input('time') * 3.6;
         $radar->save();
 
         return redirect('/radars');

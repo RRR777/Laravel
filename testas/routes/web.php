@@ -18,10 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('apie', function () {
-    //galime tiesiogiai nurodyti reiksmes
-    //return view('apie', ['number'=>'ABC123', 'speed' => '120']);
-
-    // galime suformuoti masyva
     $name = 'Jonas';
     $number = 'ABC125';
     $speed = '150';
@@ -31,13 +27,8 @@ Route::get('apie', function () {
         'number' => $number,
         'speed' => $speed
     ];
-        //
-       // return view ('apie', $sarasas );
-    //Taip pat gali compact funkcija auksciau esanti masyva suformuoti uz mus
-        return view ('apie', compact ('number', 'speed'));
+        return view('apie', compact('number', 'speed'));
 });
-
-
 
 Route::get('radars', 'RadarsController@index');
 Route::get('radars/create', 'RadarsController@create');
@@ -57,7 +48,6 @@ Route::get('drivers/{driver}/edit', 'DriversController@edit');
 Route::put('drivers/{driver}', 'DriversController@update');
 Route::get('drivers/{driver}/delete', 'DriversController@delete');
 Route::delete('drivers/{driver}', 'DriversController@destroy');
-
 
 Auth::routes();
 
