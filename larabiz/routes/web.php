@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/','ListingsController@index');
+Route::get('/', 'ListingsController@index');
 
 Auth::routes();
+
 Route::resource('listings', 'ListingsController');
 
 Route::get('/dashboard', 'DashboardController@index');

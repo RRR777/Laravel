@@ -27,7 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     //Add One to many relationship
-    public function Listings(){
+    public function Listings()
+    {
         return $this->hasMany('App\Listing');
     }
 }

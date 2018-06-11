@@ -8,7 +8,8 @@ use App\Listing;
 class ListingsController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth', ['exept' => ['index', 'show']]);
     }
     /**
@@ -44,7 +45,6 @@ class ListingsController extends Controller
             'name' => 'required',
             'email' => 'email'
         ]);
-        //Creating Listing
             $listing = new Listing;
             $listing->name = $request->input('name');
             $listing->website = $request->input('website');
@@ -53,7 +53,6 @@ class ListingsController extends Controller
             $listing->address = $request->input('address');
             $listing->bio = $request->input('bio');
             $listing->user_id = auth()->user()->id;
-
             $listing->save();
 
             return redirect('/dashboard')->with('success', 'Listing Added');
@@ -67,8 +66,8 @@ class ListingsController extends Controller
      */
     public function show($id)
     {
-        $listing = Listing::find($id); 
-        return view('showlisting')->with('listing', $listing);  
+        $listing = Listing::find($id);
+        return view('showlisting')->with('listing', $listing);
     }
 
     /**
@@ -79,8 +78,8 @@ class ListingsController extends Controller
      */
     public function edit($id)
     {
-        $listing = Listing::find($id); 
-        return view('editlisting')->with('listing', $listing);  
+        $listing = Listing::find($id);
+        return view('editlisting')->with('listing', $listing);
     }
 
     /**
@@ -97,7 +96,6 @@ class ListingsController extends Controller
             'name' => 'required',
             'email' => 'email'
         ]);
-        //Creating Listing
             $listing = Listing::find($id);
             $listing->name = $request->input('name');
             $listing->website = $request->input('website');
@@ -106,7 +104,6 @@ class ListingsController extends Controller
             $listing->address = $request->input('address');
             $listing->bio = $request->input('bio');
             $listing->user_id = auth()->user()->id;
-
             $listing->save();
 
             return redirect('/dashboard')->with('success', 'Listing Updated');
@@ -120,7 +117,7 @@ class ListingsController extends Controller
      */
     public function destroy($id)
     {
-        $listing = Listing::find($id); 
+        $listing = Listing::find($id);
         $listing->delete($id);
         return redirect('/dashboard')->with('success', 'Listing Deleted');
     }
