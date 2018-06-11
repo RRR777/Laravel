@@ -14,7 +14,6 @@ class TodosController extends Controller
      */
     public function index()
     {
-        //$todos = Todo::all();
         $todos = Todo::orderBy('created_at', 'desc')->get();
         return view('todos.index')->with('todos', $todos);
     }
@@ -40,12 +39,11 @@ class TodosController extends Controller
         $this->validate($request, [
             'text' => 'required'
         ]);
-            //Creat Todo
+
         $todo = new Todo;
         $todo->text = $request->input('text');
         $todo->body = $request->input('body');
         $todo->due = $request->input('due');
-
         $todo->save();
 
         return redirect('/')->with('success', 'Todo created');
@@ -88,7 +86,6 @@ class TodosController extends Controller
         $todo->text = $request->input('text');
         $todo->body = $request->input('body');
         $todo->due = $request->input('due');
-
         $todo->save();
 
         return redirect('/')->with('success', 'Todo updated');
